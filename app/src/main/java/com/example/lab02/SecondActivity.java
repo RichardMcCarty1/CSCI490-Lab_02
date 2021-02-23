@@ -8,11 +8,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity{
     private int image;
+    private TextView text;
 
     private ConstraintLayout setBackground;
     Intent i = new Intent();
@@ -22,7 +25,9 @@ public class SecondActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
+        text = findViewById(R.id.textView);
+        String viewText = getIntent().getExtras().getString("text");
+        text.setText(viewText);
         ImageView supermoon = findViewById(R.id.supermoon);
         ImageView waterfall = findViewById(R.id.waterfall);
 

@@ -9,9 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private EditText editText;
     private Button button;
     private ConstraintLayout setBackground;
     private int REQ_CODE = 1;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.set_background);
+        editText = findViewById(R.id.editTextTextPersonName);
         Intent i = new Intent(this, SecondActivity.class);
 
     }
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void startSecondActivity() {
         Intent i = new Intent(this, SecondActivity.class);
+        i.putExtra("text", editText.getText().toString());
         startActivityForResult(i, REQ_CODE);
     }
 
